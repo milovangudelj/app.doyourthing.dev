@@ -1,15 +1,21 @@
 import Link from "next/link";
 
 import { Button, Logo } from "../../atoms";
+import { FormElement } from "../../molecules";
 
 export const SignupForm = () => {
 	return (
-		<div className="min-w-[300px] w-full max-w-[450px]">
-			<Logo />
+		<div className="min-w-[300px] w-full max-w-[450px] space-y-8">
+			<Logo type="mark" size="lg" />
 			<h1 className="text-3xl font-bold leading-[38px]">
 				Sign up to doyourthing
 			</h1>
-			<form className="mt-8">
+			<form>
+				<div className="space-y-8 mb-8">
+					<FormElement type="email" />
+					<FormElement type="password" />
+				</div>
+				<Button>Sign up</Button>
 				<span className="absolute top-0 right-0 p-6">
 					Already have an account?{" "}
 					<Link href="/signin" passHref>
@@ -18,42 +24,6 @@ export const SignupForm = () => {
 						</a>
 					</Link>
 				</span>
-				<div className="space-y-4 mb-4">
-					<div className="flex flex-col">
-						<label htmlFor="email" className="mb-2">
-							Email
-						</label>
-						<input
-							type="email"
-							name="email"
-							id="email"
-							className="form-input"
-						/>
-					</div>
-					<div className="flex flex-col">
-						<label htmlFor="password" className="mb-2">
-							Password
-						</label>
-						<input
-							type="password"
-							name="password"
-							id="password"
-							className="form-input"
-						/>
-					</div>
-				</div>
-				<div className="flex justify-between mb-4">
-					<div>
-						<input
-							type="checkbox"
-							name="remember"
-							id="remember"
-							className="form-checkbox"
-						/>
-						<label htmlFor="remember">Remember me</label>
-					</div>
-				</div>
-				<Button>Sign up</Button>
 			</form>
 		</div>
 	);
