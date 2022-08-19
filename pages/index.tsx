@@ -1,9 +1,11 @@
 import type { NextPage } from 'next'
 import Head from "next/head";
 
+import { Layout } from "../components/layouts";
+
 const Home: NextPage = () => {
 	return (
-		<div>
+		<Layout>
 			<Head>
 				<title>dyt — Manager</title>
 				<meta
@@ -16,7 +18,7 @@ const Home: NextPage = () => {
 			<main className="flex items-center justify-center min-h-screen">
 				<h1>Exciting times ahead!</h1>
 			</main>
-		</div>
+		</Layout>
 	);
 };
 
