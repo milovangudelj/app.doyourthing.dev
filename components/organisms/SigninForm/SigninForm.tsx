@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { Button, Logo, FormInput } from "../../atoms";
-import { FormLabel } from "../../atoms/FormLabel/FormLabel";
+import { Button, Logo } from "@doyourthing/ui";
+
 import { FormElement } from "../../molecules";
 
 export const SigninForm = () => {
@@ -13,8 +13,12 @@ export const SigninForm = () => {
 			</h1>
 			<form>
 				<div className="space-y-8 mb-8">
-					<FormElement type="email" />
-					<FormElement type="password" showForgot />
+					<FormElement type="email" placeholder="hello@world.com" />
+					<FormElement
+						type="password"
+						placeholder="••••••••••••"
+						showForgot
+					/>
 				</div>
 				<Button>Sign in</Button>
 				<span className="absolute top-0 right-0 p-6">

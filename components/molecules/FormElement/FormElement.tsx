@@ -1,4 +1,6 @@
-import Link from "next/link";
+import { default as NextLink } from "next/link";
+import { Link } from "@doyourthing/ui";
+
 import { FormInput, FormLabel } from "../../atoms";
 
 export type FormElementType = "email" | "password" | "text" | "checkbox";
@@ -8,6 +10,7 @@ interface FormElementProps {
 	name?: string;
 	label?: string;
 	id?: string;
+	placeholder?: string;
 	className?: string;
 	showForgot?: boolean;
 }
@@ -36,7 +39,7 @@ const classes: {
 } = {
 	input: {
 		wrapper: "flex flex-col",
-		input: "form-input rounded bg-transparent",
+		input: "form-input rounded bg-transparent focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500",
 		label: "mb-2 font-bold",
 	},
 	textarea: {
@@ -82,6 +85,7 @@ export const FormElement = ({
 	name = defaultNames[type],
 	label = name,
 	id = name,
+	placeholder = name,
 	className,
 	showForgot = false,
 }: FormElementProps) => {
@@ -94,15 +98,16 @@ export const FormElement = ({
 					className={classes[typeCategoryMap[type]].label}
 				/>
 				{type === "password" && showForgot && (
-					<Link href="/forgot-password" passHref>
-						<a className="text-primary-500">Forgot password?</a>
-					</Link>
+					<NextLink href="/forgot-password" passHref>
+						<Link>Forgot password?</Link>
+					</NextLink>
 				)}
 			</div>
 			<FormInput
 				type={type}
 				name={name}
 				id={id}
+				placeholder={placeholder}
 				className={classes[typeCategoryMap[type]].input}
 			/>
 		</div>

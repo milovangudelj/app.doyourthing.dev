@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { Button, Logo } from "../../atoms";
+import { Logo, Button } from "@doyourthing/ui";
+
 import { FormElement } from "../../molecules";
 
 export const SignupForm = () => {
@@ -12,12 +13,12 @@ export const SignupForm = () => {
 			</h1>
 			<form>
 				<div className="space-y-8 mb-8">
-					<FormElement type="email" />
-					<FormElement type="password" />
+					<FormElement type="email" placeholder="hello@world.com" />
+					<FormElement type="password" placeholder="••••••••••••" />
 				</div>
 				<Button>Sign up</Button>
 				<span className="absolute top-0 right-0 p-6">
-					Already have an account?{" "}
+					Already signed up?{" "}
 					<Link href="/signin" passHref>
 						<a className="text-primary-500 hover:text-primary-400 active:text-primary-600 transition">
 							Sign in

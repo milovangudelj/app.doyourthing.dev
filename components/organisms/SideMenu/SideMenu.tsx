@@ -1,4 +1,4 @@
-import { Logo } from "../../atoms";
+import { Logo } from "@doyourthing/ui";
 
 export const SideMenu = () => {
 	return (
