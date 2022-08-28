@@ -1,31 +1,54 @@
-import Link from "next/link";
+import NextLink from "next/link";
 
-import { Logo, Button } from "@doyourthing/ui";
-
-import { FormElement } from "../../molecules";
+import { Link, Logo, Button, FormElement } from "@doyourthing/ui";
+import { AuthDivider, GoogleButton } from "../../atoms";
 
 export const SignupForm = () => {
 	return (
-		<div className="min-w-[300px] w-full max-w-[450px] space-y-8">
-			<Logo type="mark" size="lg" />
-			<h1 className="text-3xl font-bold leading-[38px]">
+		<div className="min-w-[300px] w-full max-w-[400px]">
+			<h1 className="text-3xl font-bold my-8 leading-[38px]">
 				Sign up to doyourthing
 			</h1>
-			<form>
-				<div className="space-y-8 mb-8">
-					<FormElement type="email" placeholder="hello@world.com" />
-					<FormElement type="password" placeholder="••••••••••••" />
+			<GoogleButton className="my-8">Sign up with Google</GoogleButton>
+			<AuthDivider />
+			<form className="space-y-4 my-8">
+				<div className="flex space-x-4">
+					<FormElement
+						type="text"
+						name="name"
+						label="Name"
+						placeholder="Jon Doe"
+					/>
+					<FormElement
+						type="text"
+						name="username"
+						label="Username"
+						placeholder="jondoe"
+					/>
 				</div>
-				<Button>Sign up</Button>
-				<span className="absolute top-0 right-0 p-6">
-					Already signed up?{" "}
-					<Link href="/signin" passHref>
-						<a className="text-primary-500 hover:text-primary-400 active:text-primary-600 transition">
-							Sign in
-						</a>
-					</Link>
-				</span>
+				<FormElement type="email" />
+				<FormElement type="password" />
 			</form>
+			<div className="space-y-2 my-8">
+				<Button fullWidth>Sign up</Button>
+				<div className="text-xs text-dark-le dark:text-light-le leading-none ">
+					This site is protected by reCAPTCHA and the Google{" "}
+					<Link href="https://policies.google.com/privacy">
+						Privacy Policy
+					</Link>{" "}
+					and{" "}
+					<Link href="https://policies.google.com/terms">
+						Terms of Service
+					</Link>{" "}
+					apply.
+				</div>
+			</div>
+			<span className="absolute top-0 right-0 p-6">
+				Already signed up?{" "}
+				<NextLink href="/signin" passHref>
+					<Link>Sign in</Link>
+				</NextLink>
+			</span>
 		</div>
 	);
 };

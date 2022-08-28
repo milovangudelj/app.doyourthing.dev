@@ -1,33 +1,29 @@
-import Link from "next/link";
+import NextLink from "next/link";
 
-import { Button, Logo } from "@doyourthing/ui";
+import { Button, Link, Logo } from "@doyourthing/ui";
 
-import { FormElement } from "../../molecules";
+import { FormElement } from "@doyourthing/ui";
+import { AuthDivider, GoogleButton } from "../../atoms";
 
 export const SigninForm = () => {
 	return (
-		<div className="min-w-[300px] w-full max-w-[450px] space-y-8">
-			<Logo type="mark" size="lg" />
-			<h1 className="text-3xl font-bold leading-[38px]">
+		<div className="min-w-[300px] w-full max-w-[400px]">
+			<h1 className="text-3xl font-bold my-8 leading-[38px]">
 				Sign in to doyourthing
 			</h1>
+			<GoogleButton className="my-8">Sign up with Google</GoogleButton>
+			<AuthDivider />
 			<form>
-				<div className="space-y-8 mb-8">
-					<FormElement type="email" placeholder="hello@world.com" />
-					<FormElement
-						type="password"
-						placeholder="••••••••••••"
-						showForgot
-					/>
+				<div className="space-y-4 mb-8">
+					<FormElement type="email" />
+					<FormElement type="password" forgettable />
 				</div>
-				<Button>Sign in</Button>
+				<Button fullWidth>Sign in</Button>
 				<span className="absolute top-0 right-0 p-6">
 					Don&apos;t have an account?{" "}
-					<Link href="/signup" passHref>
-						<a className="text-primary-500 hover:text-primary-400 active:text-primary-600 transition">
-							Sign up
-						</a>
-					</Link>
+					<NextLink href="/signup" passHref>
+						<Link>Sign up</Link>
+					</NextLink>
 				</span>
 			</form>
 		</div>
