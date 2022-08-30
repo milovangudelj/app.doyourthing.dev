@@ -1,7 +1,12 @@
 import NextLink from "next/link";
 
-import { Link, Logo, Button, FormElement } from "@doyourthing/ui";
-import { AuthDivider, GoogleButton } from "../../atoms";
+import {
+	Link,
+	Button,
+	FormElement,
+	AuthDivider,
+	GoogleButton,
+} from "@doyourthing/ui";
 
 export const SignupForm = () => {
 	return (
@@ -9,7 +14,9 @@ export const SignupForm = () => {
 			<h1 className="text-3xl font-bold my-8 leading-[38px]">
 				Sign up to doyourthing
 			</h1>
-			<GoogleButton className="my-8">Sign up with Google</GoogleButton>
+			<GoogleButton fullWidth className="my-8">
+				Sign up with Google
+			</GoogleButton>
 			<AuthDivider />
 			<form className="space-y-4 my-8">
 				<div className="flex space-x-4">
