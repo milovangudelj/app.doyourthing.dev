@@ -9,14 +9,17 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@doyourthing/ui": "^0.1.59",
+		"@doyourthing/ui": "^0.1.61",
 		"@headlessui/react": "^1.6.6",
+		"@hookform/resolvers": "^2.9.7",
 		"@prisma/client": "4.2.1",
 		"classnames": "^2.3.1",
 		"next": "12.2.5",
 		"phosphor-react": "^1.4.1",
 		"react": "18.2.0",
-		"react-dom": "18.2.0"
+		"react-dom": "18.2.0",
+		"react-hook-form": "^7.34.2",
+		"yup": "^0.32.11"
 	},
 	"devDependencies": {
 		"@tailwindcss/forms": "^0.5.2",
