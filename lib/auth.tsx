@@ -146,7 +146,7 @@ function useProvideAuth(): AuthProviderValue {
 		);
 		if (error) return { error };
 
-		router.push(options?.redirectTo ?? "/verifica-email");
+		router.push(options?.redirectTo ?? "/verify-email");
 	};
 
 	// Sign out
