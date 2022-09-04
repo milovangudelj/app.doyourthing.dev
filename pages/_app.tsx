@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 
 import { AuthProvider } from "../lib/auth";
 
+import "@doyourthing/ui/globals.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
