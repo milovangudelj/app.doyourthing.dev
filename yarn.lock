@@ -24,10 +24,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@doyourthing/ui@^0.1.62":
-  version "0.1.62"
-  resolved "https://registry.yarnpkg.com/@doyourthing/ui/-/ui-0.1.62.tgz#5001a54ee89d166c401c44f59d1f6110023b8aa2"
-  integrity sha512-zvqcws/KNbD1xEF20rBQmb9kRVCcOxxJve+rsaMOhRLOvoxgz4JRobjUCMPbOfxJ6lT5XAizMDLCf6RqlyBacA==
+"@doyourthing/ui@^0.1.67":
+  version "0.1.67"
+  resolved "https://registry.yarnpkg.com/@doyourthing/ui/-/ui-0.1.67.tgz#7997bb9cdac1aa5b7c65bd0cfcc22c6e32877aaa"
+  integrity sha512-T5xVWsFLHqLRzuXdg60b7USoTen7RNmmIRp8cMJyDTwcu5JF6LgghJZkBoudiFsGHcJcpm0TrxB2/697LqdYdA==
 
 "@eslint/eslintrc@^1.3.0":
   version "1.3.0"
