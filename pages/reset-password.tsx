@@ -46,8 +46,8 @@ const ResetPassword = ({
 				return res;
 			}, {});
 
-		if (params?.type === "recovery") setToken(params?.access_token);
-	}, []);
+		if (params?.access_token) setToken(params?.access_token);
+	}, [access_token]);
 
 	return (
 		<AuthLayout>
