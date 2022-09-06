@@ -55,8 +55,8 @@ export const ForgotForm = () => {
 						Forgot your password?
 					</h1>
 					<p className="text-dark-me dark:text-light-me mb-8">
-						Enter the email associated with your account and we'll send
-						you a link to reset your password.
+						Enter the email associated with your account and we&apos;ll
+						send you a link to reset your password.
 					</p>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className="space-y-4 mb-8">
@@ -76,7 +76,9 @@ export const ForgotForm = () => {
 					<h1 className="text-3xl font-bold my-8 leading-[38px]">
 						Password reset link sent!
 					</h1>
-					<p>Check your email, we've sent you a password reset link.</p>
+					<p>
+						Check your email, we&apos;ve sent you a password reset link.
+					</p>
 				</>
 			)}
 		</div>
