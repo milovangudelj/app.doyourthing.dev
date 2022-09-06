@@ -1,12 +1,13 @@
-import { ResetForm, SigninForm, SignupForm } from "../../organisms";
+import { ForgotForm, ResetForm, SigninForm, SignupForm } from "../../organisms";
 
-type AuthViews = "signin" | "signup" | "reset";
+type AuthViews = "signin" | "signup" | "reset" | "forgot";
 
 interface AuthFormProps {
 	view: AuthViews;
+	token?: string;
 }
 
-export const AuthForm = ({ view }: AuthFormProps) => {
+export const AuthForm = ({ view, token }: AuthFormProps) => {
 	switch (view) {
 		case "signin":
 			return <SigninForm />;
@@ -15,7 +16,10 @@ export const AuthForm = ({ view }: AuthFormProps) => {
 			return <SignupForm />;
 			break;
 		case "reset":
-			return <ResetForm />;
+			return <ResetForm token={token} />;
+			break;
+		case "forgot":
+			return <ForgotForm />;
 			break;
 	}
 };

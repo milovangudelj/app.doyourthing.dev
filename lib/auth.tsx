@@ -9,6 +9,7 @@ import { Session, ApiError, User } from "@supabase/supabase-js";
 import router from "next/router";
 
 import { supabase } from "./supabase";
+import { string } from "yup";
 
 type Profile = {
 	id: string;
@@ -23,6 +24,23 @@ type AuthProviderValue = {
 	session: Session | null;
 	loading: boolean;
 	signOut: () => Promise<void>;
+	sendResetLink: (
+		email: string,
+		options?: {
+			redirectTo?: string;
+		}
+	) => Promise<void | {
+		error: ApiError;
+	}>;
+	resetPassword: (
+		token: string,
+		password: string
+	) => Promise<
+		| {
+				error: ApiError;
+		  }
+		| undefined
+	>;
 	signInWithGoogle?: () => Promise<void>;
 	signInWithGitHub?: () => Promise<void>;
 	signInWithEmail: (
@@ -149,6 +167,30 @@ function useProvideAuth(): AuthProviderValue {
 		router.push(options?.redirectTo ?? "/verify-email");
 	};
 
+	// Send reset link
+	const sendResetLink = async (
+		email: string,
+		options?: { redirectTo?: string }
+	) => {
+		const { error } = await supabase.auth.api.resetPasswordForEmail(email, {
+			redirectTo:
+				options?.redirectTo ?? `${window.location.origin}/reset-password`,
+		});
+
+		if (error) return { error };
+	};
+
+	// Reset password
+	const resetPassword = async (token: string, password: string) => {
+		const { user, data, error } = await supabase.auth.api.updateUser(token, {
+			password: password,
+		});
+
+		console.log({ user, data });
+
+		if (error) return { error };
+	};
+
 	// Sign out
 	const signOut = async (): Promise<void> => {
 		const { error } = await supabase.auth.signOut();
@@ -163,6 +205,8 @@ function useProvideAuth(): AuthProviderValue {
 		loading,
 		signUpWithEmail,
 		signInWithEmail,
+		sendResetLink,
+		resetPassword,
 		signOut,
 	};
 }
